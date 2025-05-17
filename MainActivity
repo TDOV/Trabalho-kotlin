@@ -1,0 +1,74 @@
+package com.example.myapplication
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Switch
+import android.widget.Toast
+import androidx.activity.ComponentActivity
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_main)
+
+        // Pega referências dos componentes
+        val editTextRoomNumber = findViewById<EditText>(R.id.editTextRoomNumber)
+
+        val checkCafe = findViewById<CheckBox>(R.id.checkCafe)
+        val checkLeite = findViewById<CheckBox>(R.id.checkLeite)
+        val checkSuco = findViewById<CheckBox>(R.id.checkSuco)
+
+        val radioGroupFrutas = findViewById<RadioGroup>(R.id.radioGroupFrutas)
+
+        val switchLactose = findViewById<Switch>(R.id.switchLactose)
+        val switchGluten = findViewById<Switch>(R.id.switchLactose) // Atenção: seu XML tem id repetido para switchGluten, precisa corrigir!
+
+        val buttonSalvar = findViewById<Button>(R.id.buttonSalvar)
+
+        buttonSalvar.setOnClickListener {
+            val roomNumber = editTextRoomNumber.text.toString()
+            val cafe = checkCafe.isChecked
+            val leite = checkLeite.isChecked
+            val suco = checkSuco.isChecked
+
+            val frutaSelecionadaId = radioGroupFrutas.checkedRadioButtonId
+            val frutaSelecionada = if (frutaSelecionadaId != -1) {
+                findViewById<RadioButton>(frutaSelecionadaId).text.toString()
+            } else {
+                "Nenhuma"
+            }
+
+            val intoleranciaLactose = switchLactose.isChecked
+            val alergiaGluten = switchGluten.isChecked
+
+            val resumo = """
+                Número do quarto: $roomNumber
+                Café: $cafe
+                Leite: $leite
+                Suco: $suco
+                Fruta: $frutaSelecionada
+                Intolerância à Lactose: $intoleranciaLactose
+                Alergia ao Glúten: $alergiaGluten
+            """.trimIndent()
+
+            Toast.makeText(this, resumo, Toast.LENGTH_LONG).show()
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
+}
