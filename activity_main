@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Número do Quarto -->
+        <EditText
+            android:id="@+id/editTextRoomNumber"
+            android:hint="Número do Quarto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+        <!-- Café da Manhã -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Café da Manhã" />
+
+        <CheckBox
+            android:id="@+id/checkCafe"
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            android:text="Café" />
+
+        <CheckBox
+            android:id="@+id/checkLeite"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="Leite" />
+
+        <CheckBox
+            android:id="@+id/checkSuco"
+            android:layout_width="151dp"
+            android:layout_height="wrap_content"
+            android:text="Suco" />
+
+        <!-- Frutas (RadioGroup) -->
+        <RadioGroup
+            android:id="@+id/radioGroupFrutas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:enabled="false">
+
+            <RadioButton
+                android:id="@+id/radioUva"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="Uva" />
+
+            <RadioButton
+                android:id="@+id/radioMaca"
+                android:layout_width="173dp"
+                android:layout_height="wrap_content"
+                android:text="Maçã" />
+
+            <RadioButton
+                android:id="@+id/radioLaranja"
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="Laranja" />
+
+        </RadioGroup>
+
+        <!-- Intolerância à Lactose -->
+        <TextView
+            android:text="Intolerância à Lactose"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Switch
+            android:id="@+id/switchLactose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Alergia ao Glúten -->
+        <TextView
+            android:text="Alergia ao Glúten"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Switch
+            android:id="@+id/switchLactose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Botão Salvar -->
+        <Button
+            android:id="@+id/buttonSalvar"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Salvar" />
+
+    </LinearLayout>
+</ScrollView>
